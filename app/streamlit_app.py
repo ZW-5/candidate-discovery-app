@@ -1,14 +1,26 @@
+import os
+import sys
 import pandas as pd
 import streamlit as st
-import os
+
+# Ensure we can import matching_engine from the app folder
+sys.path.append(os.path.join(os.getcwd(), "app"))
+from matching_engine import load_data, match_candidates
 
 st.set_page_config(page_title="Candidate Rediscovery", layout="wide")
 
-# 1) Load the core matches and the highlights
-matches = pd.read_csv("outputs/candidate_matches.csv")
+# 1) Generate the match file if it doesn't exist
+os.makedirs("outputs", exist_ok=True)
+match_file = "outputs/candidate_matches.csv"
+if not os.path.exists(match_file):
+    apps, feedback, reqs, resumes, jds = load_data(data_dir="data")
+    match_candidates(apps, feedback, reqs, resumes, jds)
+
+# 2) Load matches and highlights
+matches = pd.read_csv(match_file)
 highlights = pd.read_csv("data/resume_jd_highlights.csv")
 
-# 2) Merge them so you have both highlight columns available
+# Merge to include resume highlights and JD match points
 df = matches.merge(
     highlights[['applicant_id','job_req_id','resume_highlights','jd_match_points']],
     on=['applicant_id','job_req_id'],
@@ -50,13 +62,13 @@ st.sidebar.download_button(
     mime="text/csv"
 )
 
-# Main area
+# Main display
 st.title("🔁 Candidate Rediscovery Dashboard")
 st.markdown("Browse high-quality rediscovered candidates.")
 
 st.dataframe(
     filtered[[
-        'applicant_id', 'job_family', 'location', 'interview_score',
+        'applicant_id', 'job_req_id', 'job_family', 'location', 'interview_score',
         'feedback_text', 'matched_to_hired_id', 'matched_feedback',
         'feedback_similarity', 'resume_jd_similarity', 'rediscovery_index_score',
         'resume_highlights', 'jd_match_points'
