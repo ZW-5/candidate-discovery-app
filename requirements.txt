@@ -3,3 +3,5 @@ torch
 sentence-transformers
 streamlit
 Faker
+nltk
+rake_nltk
