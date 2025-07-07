@@ -1,0 +1,15 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environments
+venv/
+.venv/
+
+# Local outputs (don’t push your data or CSVs)
+outputs/
+*.zip
+
+# IDE/project files
+.idea/
+.vscode/
