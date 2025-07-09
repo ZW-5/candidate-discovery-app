@@ -1,0 +1,11 @@
+applicant_id,job_req_id,interviewer,feedback_text,interview_score
+A1001,JR001,jsmith,"Excellent problem solving and team collaboration",4
+A1002,JR002,adoe,"Great communication skills and eagerness to learn",4
+A1003,JR003,bwilson,"Enthusiastic but lacks marketing experience",3
+A1004,JR003,ljohnson,"Outstanding marketing knowledge and presentation skills",5
+A1005,JR004,kmiller,"Good HR background with strategic mindset",4
+A1006,JR004,pbrown,"Excellent HR expertise and leadership qualities",5
+A1007,JR001,jsmith,"Strong coder and quick learner",5
+A1008,JR002,adoe,"Shows promise but needs more experience",3
+A1009,JR004,kmiller,"Experienced HR leader with great people skills",5
+A1010,JR003,bwilson,"Creative thinker with solid marketing fundamentals",4

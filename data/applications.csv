@@ -1,0 +1,11 @@
+applicant_id,job_req_id,application_date,location,job_family,level,hired
+A1001,JR001,2023-01-15,New York,Engineering,L4,True
+A1002,JR002,2023-02-10,New York,Engineering,L4,False
+A1003,JR003,2023-03-05,San Francisco,Marketing,L3,False
+A1004,JR003,2023-03-15,San Francisco,Marketing,L3,True
+A1005,JR004,2023-04-10,Chicago,HR,L4,False
+A1006,JR004,2023-04-20,Chicago,HR,L4,True
+A1007,JR001,2023-05-01,New York,Engineering,L4,True
+A1008,JR002,2023-05-10,New York,Engineering,L4,False
+A1009,JR004,2023-05-25,Chicago,HR,L4,True
+A1010,JR003,2023-06-05,San Francisco,Marketing,L3,False
